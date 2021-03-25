@@ -1,0 +1,58 @@
+2021-03-24 21:27:01,647 - INFO - train.py:74 - main() - total data size: 143
+2021-03-24 21:27:01,647 - INFO - train.py:75 - main() - total label size: 143
+2021-03-24 21:31:05,046 - INFO - train.py:74 - main() - total data size: 143
+2021-03-24 21:31:05,046 - INFO - train.py:75 - main() - total label size: 143
+2021-03-24 21:31:54,083 - INFO - train.py:74 - main() - total data size: 143
+2021-03-24 21:31:54,083 - INFO - train.py:75 - main() - total label size: 143
+2021-03-24 21:33:03,458 - INFO - train.py:74 - main() - total data size: 143
+2021-03-24 21:33:03,458 - INFO - train.py:75 - main() - total label size: 143
+2021-03-24 21:36:51,593 - INFO - train.py:74 - main() - total data size: 143
+2021-03-24 21:36:51,593 - INFO - train.py:75 - main() - total label size: 143
+2021-03-24 21:38:09,120 - INFO - train.py:74 - main() - total data size: 143
+2021-03-24 21:38:09,120 - INFO - train.py:75 - main() - total label size: 143
+2021-03-24 21:38:43,363 - INFO - train.py:74 - main() - total data size: 143
+2021-03-24 21:38:43,363 - INFO - train.py:75 - main() - total label size: 143
+2021-03-24 21:39:28,004 - INFO - train.py:74 - main() - total data size: 143
+2021-03-24 21:39:28,005 - INFO - train.py:75 - main() - total label size: 143
+2021-03-24 21:42:45,607 - INFO - train.py:74 - main() - total data size: 143
+2021-03-24 21:42:45,607 - INFO - train.py:75 - main() - total label size: 143
+2021-03-24 21:44:27,940 - INFO - train.py:74 - main() - total data size: 143
+2021-03-24 21:44:27,940 - INFO - train.py:75 - main() - total label size: 143
+2021-03-24 21:50:38,077 - INFO - train.py:74 - main() - total data size: 143
+2021-03-24 21:50:38,078 - INFO - train.py:75 - main() - total label size: 143
+2021-03-24 21:56:20,561 - INFO - train.py:74 - main() - total data size: 143
+2021-03-24 21:56:20,561 - INFO - train.py:75 - main() - total label size: 143
+2021-03-24 21:58:39,119 - INFO - train.py:74 - main() - total data size: 143
+2021-03-24 21:58:39,120 - INFO - train.py:75 - main() - total label size: 143
+2021-03-24 22:01:05,563 - INFO - train.py:74 - main() - total data size: 143
+2021-03-24 22:01:05,563 - INFO - train.py:75 - main() - total label size: 143
+2021-03-24 23:05:11,661 - INFO - train.py:74 - main() - total data size: 143
+2021-03-24 23:05:11,661 - INFO - train.py:75 - main() - total label size: 143
+2021-03-24 23:08:23,374 - INFO - train.py:74 - main() - total data size: 143
+2021-03-24 23:08:23,374 - INFO - train.py:75 - main() - total label size: 143
+2021-03-24 23:12:40,608 - INFO - train.py:74 - main() - total data size: 143
+2021-03-24 23:12:40,608 - INFO - train.py:75 - main() - total label size: 143
+2021-03-24 23:16:04,052 - INFO - train.py:74 - main() - total data size: 143
+2021-03-24 23:16:04,052 - INFO - train.py:75 - main() - total label size: 143
+2021-03-24 23:24:39,750 - INFO - train.py:74 - main() - total data size: 143
+2021-03-24 23:24:39,750 - INFO - train.py:75 - main() - total label size: 143
+2021-03-24 23:26:02,166 - WARNING - save.py:241 - __init__() - Found untraced functions such as embeddings_layer_call_fn, embeddings_layer_call_and_return_conditional_losses, encoder_layer_call_fn, encoder_layer_call_and_return_conditional_losses, pooler_layer_call_fn while saving (showing 5 of 1065). These functions will not be directly callable after loading.
+2021-03-24 23:26:02,500 - WARNING - save.py:241 - __init__() - Found untraced functions such as embeddings_layer_call_fn, embeddings_layer_call_and_return_conditional_losses, encoder_layer_call_fn, encoder_layer_call_and_return_conditional_losses, pooler_layer_call_fn while saving (showing 5 of 1065). These functions will not be directly callable after loading.
+2021-03-24 23:33:18,057 - INFO - train.py:74 - main() - total data size: 143
+2021-03-24 23:33:18,057 - INFO - train.py:75 - main() - total label size: 143
+2021-03-24 23:34:43,000 - WARNING - save.py:241 - __init__() - Found untraced functions such as embeddings_layer_call_and_return_conditional_losses, embeddings_layer_call_fn, encoder_layer_call_and_return_conditional_losses, encoder_layer_call_fn, pooler_layer_call_and_return_conditional_losses while saving (showing 5 of 1065). These functions will not be directly callable after loading.
+2021-03-24 23:34:43,346 - WARNING - save.py:241 - __init__() - Found untraced functions such as embeddings_layer_call_and_return_conditional_losses, embeddings_layer_call_fn, encoder_layer_call_and_return_conditional_losses, encoder_layer_call_fn, pooler_layer_call_and_return_conditional_losses while saving (showing 5 of 1065). These functions will not be directly callable after loading.
+2021-03-25 11:13:05,773 - INFO - train.py:37 - main() - total data size: 143
+2021-03-25 11:13:05,773 - INFO - train.py:38 - main() - total label size: 143
+2021-03-25 11:13:05,776 - INFO - train.py:48 - main() - train data size: 114
+2021-03-25 11:13:05,776 - INFO - train.py:49 - main() - dev data size: 29
+2021-03-25 11:16:45,066 - INFO - train.py:37 - main() - total data size: 143
+2021-03-25 11:16:45,066 - INFO - train.py:38 - main() - total label size: 143
+2021-03-25 11:16:45,070 - INFO - train.py:48 - main() - train data size: 114
+2021-03-25 11:16:45,070 - INFO - train.py:49 - main() - dev data size: 29
+2021-03-25 11:20:04,001 - INFO - train.py:37 - main() - total data size: 143
+2021-03-25 11:20:04,001 - INFO - train.py:38 - main() - total label size: 143
+2021-03-25 11:20:04,005 - INFO - train.py:48 - main() - train data size: 114
+2021-03-25 11:20:04,005 - INFO - train.py:49 - main() - dev data size: 29
+2021-03-25 11:21:27,815 - WARNING - save.py:241 - __init__() - Found untraced functions such as embeddings_layer_call_fn, embeddings_layer_call_and_return_conditional_losses, encoder_layer_call_fn, encoder_layer_call_and_return_conditional_losses, pooler_layer_call_fn while saving (showing 5 of 1065). These functions will not be directly callable after loading.
+2021-03-25 11:21:28,140 - WARNING - save.py:241 - __init__() - Found untraced functions such as embeddings_layer_call_fn, embeddings_layer_call_and_return_conditional_losses, encoder_layer_call_fn, encoder_layer_call_and_return_conditional_losses, pooler_layer_call_fn while saving (showing 5 of 1065). These functions will not be directly callable after loading.
