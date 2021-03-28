@@ -51,7 +51,7 @@ def create_infer_inputs(sentences, max_len, tokenizer):
 def classification_predict():
     data = json.loads(request.get_data(), encoding="utf-8")
     sentence = data["context"]
-
+    url = data.get("url")
     input_ids, attention_mask = create_infer_inputs(sentence, max_len, tokenizer)
     print("input_ids: ", input_ids)
     print("attention_mask: ", attention_mask)
@@ -59,7 +59,7 @@ def classification_predict():
                        "inputs": {"input_ids": input_ids,
                                   "attention_mask": attention_mask}})
     headers = {"content-type": "application/json"}
-    result = requests.post("http://192.168.4.193:8009/v1/models/class:predict", data=data, headers=headers)
+    result = requests.post(url, data=data, headers=headers)
     print("result: ", result)
     if result.status_code == 200:
         result = json.loads(result.text)

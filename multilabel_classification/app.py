@@ -84,6 +84,7 @@ def multiclassifier_pred():
     data_para = json.loads(request.get_data(), encoding="utf-8")
     sentence = data_para["sent"]
     print("sentence: ", sentence)
+    url = data_para.get("url")
     # get model input
     test_x = get_model_data(sentence, tokenizer, 256)
     input_ids = test_x[0]
@@ -92,7 +93,7 @@ def multiclassifier_pred():
                        "inputs": {"input_ids": input_ids,
                                   "attention_mask": attention_mask}})
     headers = {"content-type": "application/json"}
-    result = requests.post("http://192.168.4.193:8009/v1/models/multiclass:predict", data=data, headers=headers)
+    result = requests.post(url, data=data, headers=headers)
     if result.status_code == 200:
         result = json.loads(result.text)
         pred_logits = np.array(result["outputs"])
