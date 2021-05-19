@@ -9,16 +9,19 @@ import numpy as np
 from flask import Flask, request, jsonify
 
 from utils import load_dict
+from utils import bio_to_json
 from utils import get_tokenizer
-from predict import create_infer_inputs
+from utils import create_infer_inputs
+from config.ner_config import model_params
 
 app = Flask(__name__)
 app.config["JSON_AS_ASCII"] = False
 
-max_len = 100
+args = model_params()
+max_len = args["max_len"]
 tag2id = load_dict("./output/tag2id.json")
 id2tag = {value: key for key, value in tag2id.items()}
-tokenizer = get_tokenizer()
+tokenizer = get_tokenizer(args["pretrain_model_path"])
 
 
 @app.route('/', methods=['POST'])
@@ -41,12 +44,10 @@ def bert_ner_infer():
     pred_logits = result["outputs"][0]
     pred = np.argmax(pred_logits, axis=1).tolist()
     print("pred: ", pred)
-    # todo 感觉写的有问题，用训练集的样本预测都是O
     predict_label = []
     for j in range(min(len_list[0], max_len)):
         predict_label.append(id2tag[pred[j]])
-
-    return_result = {"predict": predict_label}
+    return_result = bio_to_json(text, predict_label)
     return jsonify(return_result)
 
 

@@ -10,3 +10,6 @@ multilabel_classification
    
 ## 命名实体识别
    entity_extract
+   目前预训练模型支持中文bert，roberta，<br>
+   注意：提前下载好transformers的预训练模型,这里的roberta模型采用的是哈工大版本的
+   

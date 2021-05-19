@@ -1,5 +1,5 @@
 # 命名实体识别
-本项目是利用hugging face的transformers实现命名实体识别。
+本项目是利用hugging face的transformers实现命名实体识别,支持中文bert和roberta-wwm
 
 ## requirements
 ```

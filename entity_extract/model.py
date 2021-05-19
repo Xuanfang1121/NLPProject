@@ -5,43 +5,29 @@ import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
 from transformers import TFBertModel
+from transformers import TFBertForTokenClassification
 
 
-def create_model(num_tags, max_len):
-    # # BERT encoder
-    encoder = TFBertModel.from_pretrained("bert-base-chinese")
-    # save_path = "D:/spyder/tf_torch_model/torch_model/bert_base_uncased/"
-    # save_path = "/work/zhangxf/torch_pretraining_model/bert_base_uncased/"
-    save_path = "D:/Spyder/pretrain_model/transformers_torch_tf/bert_base_chinese/"
-    encoder.save_pretrained(save_path)
+class BertNERModel(object):
+    def __init__(self, model_path, num_tags, dropout):
+        self.model_path = model_path
+        self.num_tags = num_tags
+        self.dropout = dropout
+        self.encoder = TFBertForTokenClassification.from_pretrained(self.model_path)
 
-    # # NER Model
-    input_ids = layers.Input(shape=(None,), dtype=tf.int32, name="input_ids")
-    token_type_ids = layers.Input(shape=(None,), dtype=tf.int32, name="token_type_ids")
-    attention_mask = layers.Input(shape=(None,), dtype=tf.int32, name="attention_mask")
-    embedding = encoder(
-        input_ids, token_type_ids=token_type_ids, attention_mask=attention_mask
-    )[0]
-    embedding = layers.Dropout(0.3)(embedding)
+    def get_model(self):
+        input_ids = layers.Input(shape=(None,), dtype=tf.int32, name="input_ids")
+        token_type_ids = layers.Input(shape=(None,), dtype=tf.int32, name="token_type_ids")
+        attention_mask = layers.Input(shape=(None,), dtype=tf.int32, name="attention_mask")
+        embedding = self.encoder(
+            input_ids, token_type_ids=token_type_ids, attention_mask=attention_mask
+        )[0]
+        embedding = layers.Dropout(self.dropout)(embedding)
 
-    tag_logits = layers.Dense(num_tags, activation='softmax')(embedding)
+        tag_logits = layers.Dense(self.num_tags, activation='softmax')(embedding)
 
-    model = keras.Model(
-        inputs=[input_ids, token_type_ids, attention_mask],
-        outputs=[tag_logits],
-    )
-    optimizer = keras.optimizers.Adam(lr=3e-5)
-    loss_object = tf.keras.losses.SparseCategoricalCrossentropy(
-        from_logits=False, reduction=tf.keras.losses.Reduction.NONE
-    )
-
-    def masked_ce_loss(real, pred):
-        mask = tf.math.logical_not(tf.math.equal(real, 17))
-        loss_ = loss_object(real, pred)
-
-        mask = tf.cast(mask, dtype=loss_.dtype)
-        loss_ *= mask
-
-        return tf.reduce_mean(loss_)
-    model.compile(optimizer=optimizer, loss=masked_ce_loss, metrics=['accuracy'])
-    return model
+        model = keras.Model(
+            inputs=[input_ids, token_type_ids, attention_mask],
+            outputs=[tag_logits],
+        )
+        return model
