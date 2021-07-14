@@ -15,6 +15,7 @@ transformers==4.2.0
 |__predict.py
 |__utils.py
 |__app.py
+|__evaluate.py
 ```
 说明：
 ```

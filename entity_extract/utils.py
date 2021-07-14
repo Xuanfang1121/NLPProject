@@ -185,6 +185,41 @@ def create_infer_inputs(sentences, max_len, tokenizer):
     return x, len_list
 
 
+def create_inputs_targets_roberta(sentences, tags, tag2id, max_len, tokenizer):
+    tokenizer.enable_padding(length=max_len)
+    tokenizer.enable_truncation(max_length=max_len)
+    dataset_dict = {
+        "input_ids": [],
+        "token_type_ids": [],
+        "attention_mask": [],
+        "tags": []
+    }
+
+    for sentence, tag in zip(sentences, tags):
+        sentence = ''.join(sentence)
+        input_ids, token_type_ids, attention_mask, \
+        post_tags = convert_example_to_feature(sentence, tag, tokenizer)
+        dataset_dict["input_ids"].append(input_ids)
+        dataset_dict["token_type_ids"].append(token_type_ids)
+        dataset_dict["attention_mask"].append(attention_mask)
+        if len(post_tags) < max_len - 2:
+            pad_bio_tags = post_tags + [tag2id['O']] * (max_len - 2 - len(post_tags))
+        else:
+            pad_bio_tags = post_tags[:max_len - 2]
+        dataset_dict["tags"].append([tag2id['O']] + pad_bio_tags + [tag2id['O']])
+
+    for key in dataset_dict:
+        dataset_dict[key] = np.array(dataset_dict[key])
+
+    x = [
+        dataset_dict["input_ids"],
+        dataset_dict["token_type_ids"],
+        dataset_dict["attention_mask"],
+    ]
+    y = dataset_dict["tags"]
+    return x, y
+
+
 def bio_to_json(string, tags):
     item = {"string": string, "entities": []}
     entity_name = ""
